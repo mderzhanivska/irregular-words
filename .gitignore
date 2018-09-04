@@ -1,0 +1,7 @@
+.idea
+node_modules
+dist
+*.html
+*.css
+src/scripts
+src/libs

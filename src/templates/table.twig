@@ -1,0 +1,20 @@
+{% extends '../index.twig' %}
+
+{% set styles = 'table' %}
+{% set script = 'table' %}
+
+{% block title %}Table{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <h1>Index</h1>
+    <p class="important">
+        Welcome to my awesome homepage.
+    </p>
+{% endblock %}
