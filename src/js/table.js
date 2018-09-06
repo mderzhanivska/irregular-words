@@ -1,5 +1,5 @@
 
-import { table } from '../../data';
+import { table } from '../data';
 
 const container = document.getElementById('data-table');
 const search = document.getElementById('search-input');
@@ -22,26 +22,26 @@ search.addEventListener('blur', handleBlurSearch, false);
 
 
 function renderTable(data) {
-  const rTable = document.createElement('table');
-  const tr = rTable.insertRow(-1);
+  const $table = document.createElement('table');
+  const tr = $table.insertRow(-1);
 
-  rTable.columns.forEach((column) => {
+  table.columns.forEach((column) => {
     const th = document.createElement('th');
     th.innerHTML = column.title;
     tr.appendChild(th);
   });
 
   data.forEach((verb) => {
-    const TR = rTable.insertRow(-1);
+    const TR = $table.insertRow(-1);
 
-    rTable.columns.forEach((column) => {
+    table.columns.forEach((column) => {
       const tabCell = TR.insertCell(-1);
       tabCell.innerHTML = verb[column.key];
     });
   });
 
   container.innerHTML = '';
-  container.appendChild(rTable);
+  container.appendChild($table);
 }
 
 

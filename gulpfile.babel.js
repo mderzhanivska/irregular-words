@@ -1,19 +1,17 @@
 import del from 'del';
 import gulp from 'gulp';
-import path from 'path';
 import sass from 'gulp-sass';
 import twig from 'gulp-twig';
-import babel from 'gulp-babel';
 import rename from 'gulp-rename';
 import concat from 'gulp-concat';
-import include from 'gulp-include';
 import cssNano from 'gulp-cssnano';
 import uglifyJs from 'gulp-uglifyjs';
+import babelify from 'babelify';
+import browserify from 'browserify';
 import browserSync from 'browser-sync';
-import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'gulp-autoprefixer';
+import source from 'vinyl-source-stream';
 
-import * as data from './data';
 
 gulp.task('sass', () => gulp.src('src/scss/**/*.scss').pipe(sass())
   .pipe(autoprefixer([
@@ -25,23 +23,15 @@ gulp.task('sass', () => gulp.src('src/scss/**/*.scss').pipe(sass())
   .pipe(browserSync.reload({ stream: true })));
 
 
-gulp.task('js', () => gulp.src('src/js/table.js')
-  .pipe(sourcemaps.init())
-  .pipe(babel())
-  .pipe(include({
-    includePaths: [
-      path.join(__dirname, './data'),
-    ],
+gulp.task('js', () => browserify({
+  entries: ['src/js/index.js'],
+})
+  .transform(babelify.configure({
+    presets: ['es2015'],
   }))
-  .on('error', console.log)
+  .bundle()
+  .pipe(source('bundle.js'))
   .pipe(gulp.dest('src/scripts')));
-
-
-gulp.task('twig', () => gulp.src('src/**/*.twig')
-  .pipe(twig({
-    data,
-  }))
-  .pipe(gulp.dest('src')));
 
 
 gulp.task('browser-sync', () => browserSync({
@@ -51,6 +41,11 @@ gulp.task('browser-sync', () => browserSync({
   ],
   browser: 'google chrome',
 }));
+
+
+gulp.task('twig', () => gulp.src('src/**/*.twig')
+  .pipe(twig())
+  .pipe(gulp.dest('src')));
 
 
 gulp.task('min-js', () => gulp.src([
@@ -92,7 +87,7 @@ gulp.task('build', ['clean', 'min-css', 'min-js'], () => {
 
 
 gulp.task('watch', ['twig', 'js', 'sass', 'browser-sync'], () => {
-  gulp.watch('src/**/*.twig', ['twig']);
+  gulp.watch('src/**/**/*.twig', ['twig']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['js']);
   gulp.watch('src/**/*.html', browserSync.reload);
