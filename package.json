@@ -48,6 +48,7 @@
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglifyjs": "^0.6.2",
+    "proxy-middleware": "^0.15.0",
     "stylelint-config-airbnb": "0.0.0",
     "stylelint-order": "^1.0.0",
     "stylelint-scss": "^3.3.0",
