@@ -1,71 +1,75 @@
 @media screen and (max-width: 1199px) {
-  .title {
-    font-size: 20px;
-  }
 
-  .content {
-    margin: 15px;
-  }
+	.title {
+		font-size: 20px;
+	}
 
-  th {
-    text-align: left;
-  }
+	.content {
+		margin: 15px;
+	}
+
+	th {
+		text-align: left;
+	}
 }
 
 @media screen and (max-width: 991px) {
-  .content {
-    margin: 20px;
-  }
 
-  td,
-  th,
-  #search-input,
-  .floating-label {
-    font-size: 15px;
-  }
+	.content {
+		margin: 20px;
+	}
+
+	td,
+	th,
+	#search-input,
+	.floating-label {
+		font-size: 15px;
+	}
 }
 
 @media screen and (max-width: 768px) {
-  .title {
-    font-size: 15px;
-  }
 
-  .content {
-    margin: 15px;
-  }
+	.title {
+		font-size: 15px;
+	}
 
-  td,
-  th,
-  #search-input,
-  .floating-label {
-    font-size: 15px;
-  }
+	.content {
+		margin: 15px;
+	}
+
+	td,
+	th,
+	#search-input,
+	.floating-label {
+		font-size: 15px;
+	}
 }
 
 @media screen and (max-width: 468px) {
-  header {
-    padding: 20px 0;
-  }
 
-  .title {
-    font-size: 15px;
-  }
+	header {
+		padding: 20px 0;
+	}
 
-  .content,
-  #data-table {
-    overflow-x: auto;
-  }
+	.title {
+		font-size: 15px;
+	}
 
-  th {
-    text-align: center;
-  }
+	.content,
+	#data-table {
+		overflow-x: auto;
+	}
 
-  td,
-  th,
-  #search-input,
-  .floating-label {
-    font-size: 15px;
-  }
+	th {
+		text-align: center;
+	}
+
+	td,
+	th,
+	#search-input,
+	.floating-label {
+		font-size: 15px;
+	}
 }
 
 

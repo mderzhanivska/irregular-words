@@ -1,11 +1,22 @@
 
 
 h2 {
-  font-size: 40px;
-  text-align: center;
+	font-size: 40px;
+	text-align: center;
 }
 
-.sign-in-form, .sign-up-form {
-  display: flex;
-  justify-content: center;
+.sign-in-form,
+.sign-up-form {
+	display: flex;
+	justify-content: center;
+}
+
+
+.row {
+	flex-direction: column;
+	padding-top: 30px;
+
+	h2 {
+		padding-bottom: 30px;
+	}
 }

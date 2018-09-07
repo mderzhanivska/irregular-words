@@ -11,9 +11,26 @@ import browserify from 'browserify';
 import browserSync from 'browser-sync';
 import autoprefixer from 'gulp-autoprefixer';
 import source from 'vinyl-source-stream';
+import notify from 'gulp-notify';
+import plumber from 'gulp-plumber';
 
 
-gulp.task('sass', () => gulp.src('src/scss/**/*.scss').pipe(sass())
+gulp.task('sass', () => gulp
+  .src('src/scss/**/*.scss')
+  .pipe(plumber({
+    errorHandler: (err) => {
+      notify.onError({
+        sound: false,
+        title: 'Scss',
+        message: err.toString(),
+      })(err);
+    },
+  }))
+  .pipe(sass({
+    includePaths: [
+      'node_modules/bootstrap/scss',
+    ],
+  }))
   .pipe(autoprefixer([
     'last 10 versions',
   ], {

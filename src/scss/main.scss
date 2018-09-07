@@ -1,109 +1,111 @@
+@import "bootstrap";
+
 body {
-  margin: 0;
-  display: grid;
-  padding-bottom: 40px;
+	margin: 0;
+	display: grid;
+	padding-bottom: 40px;
 }
 
 header {
-  padding: 20px 0;
-  border-bottom: 1px solid #ccc;
-  background-color: #F5F5F5;
-  text-align: center;
+	padding: 20px 0;
+	border-bottom: 1px solid #ccc;
+	background-color: #F5F5F5;
+	text-align: center;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+	width: 100%;
+	border-collapse: collapse;
 }
 
 table,
 th,
 td {
-  font: 20px Arial, sans-serif;
+	font: 20px Arial, sans-serif;
 }
 
 th {
-  padding: 20px 10px;
-  font-weight: bold;
-  text-align: left;
-  border-bottom: 2px solid #ccc;
+	padding: 20px 10px;
+	font-weight: bold;
+	text-align: left;
+	border-bottom: 2px solid #ccc;
 }
 
 tr {
-  border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
 
 td {
-  padding: 20px 10px;
+	padding: 20px 10px;
 }
 
 tr:nth-child(even) {
-  background-color: #F5F5F5;
+	background-color: #F5F5F5;
 }
 
 tr:last-child {
-  border: none;
+	border: 0;
 }
 
 .title {
-  text-transform: uppercase;
-  text-align: center;
-  font: 400 25px Arial, sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	font: 400 25px Arial, sans-serif;
 }
 
 .content {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
 }
 
 #data-table {
-  margin-top: 20px;
-  display: flex;
+	margin-top: 20px;
+	display: flex;
 }
 
 .search {
-  position: relative;
-  padding-top: 20px;
-  display: flex;
-  border-bottom: 1px solid #eee;
+	position: relative;
+	padding-top: 20px;
+	display: flex;
+	border-bottom: 1px solid #eee;
 
 }
 
 #search-input {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  border: none;
-  outline: none;
-  font-size: 20px;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	border: 0;
+	outline: none;
+	font-size: 20px;
 }
 
 .floating-label {
-  position: absolute;
-  pointer-events: none;
-  left: 10px;
-  top: 31px;
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  color: #aaa;
-  transition: 0.2s ease all;
+	position: absolute;
+	pointer-events: none;
+	left: 10px;
+	top: 31px;
+	font-family: Arial, sans-serif;
+	font-size: 20px;
+	color: #aaa;
+	transition: .2s ease all;
 }
 
 .search-focus .floating-label {
-  top: 0;
-  font-size: 15px;
+	top: 0;
+	font-size: 15px;
 }
 
 footer {
-  padding: 20px 0;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #F5F5F5;
-  text-align: center;
+	padding: 20px 0;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #F5F5F5;
+	text-align: center;
 }
