@@ -13,6 +13,10 @@ import autoprefixer from 'gulp-autoprefixer';
 import source from 'vinyl-source-stream';
 import notify from 'gulp-notify';
 import plumber from 'gulp-plumber';
+import proxy from 'proxy-middleware';
+import url from 'url';
+
+import config from './config';
 
 
 gulp.task('sass', () => gulp
@@ -51,13 +55,22 @@ gulp.task('js', () => browserify({
   .pipe(gulp.dest('src/scripts')));
 
 
-gulp.task('browser-sync', () => browserSync({
-  server: [
-    'src/templates',
-    'src',
-  ],
-  browser: 'google chrome',
-}));
+gulp.task('browser-sync', () => {
+  const proxyOptions = url.parse(`http://localhost:5000/api/v${config.apiVersion}`);
+  proxyOptions.route = config.server;
+
+  browserSync({
+    open: true,
+    server: {
+      baseDir: [
+        'src/templates',
+        'src',
+      ],
+      middleware: [proxy(proxyOptions)],
+    },
+    browser: 'google chrome',
+  });
+});
 
 
 gulp.task('twig', () => gulp.src('src/**/*.twig')
